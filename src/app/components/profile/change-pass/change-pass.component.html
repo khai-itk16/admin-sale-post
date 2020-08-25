@@ -1,0 +1,106 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Đổi mật khẩu
+        </h1>
+        <ol class="breadcrumb">
+            <li><a [routerLink]="['/profile']">Quản lý profile</a></li>
+            <li><a class="active">Đổi mật khẩu</a></li>
+        </ol>
+
+    </div>
+    <div id="page-inner">
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Form Elements -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-content">
+                                <form  [formGroup]= "profileForm">
+                                    <div class="form-group">
+                                        <label for="old_password">Old password</label>
+                                        <input id="old_password" type="text" formControlName="oldPassword"
+                                            name="password" class="form-control"/>
+                                        <div *ngIf="profileFormControl.oldPassword?.errors 
+                                            && (profileFormControl.oldPassword.touched || profileFormControl.oldPassword.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.oldPassword.errors.required"  class="text-danger">
+                                                Old password is required.
+                                            </div>
+                                            <div *ngIf="profileFormControl.oldPassword.errors.minlength">
+                                                Old password must be at least 6 characters long.
+                                            </div>
+                                            <div *ngIf="profileFormControl.oldPassword.errors.containAllBlankCharacter">
+                                                Old password must not be blank character.
+                                            </div>
+                                            <div *ngIf="profileFormControl.oldPassword.errors.maxlength">
+                                                Old password must be at less than 50 characters long.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="password">Password</label>
+                                        <input id="password" type="text" formControlName="newPassword"
+                                            name="password" class="form-control"/>
+                                        <div *ngIf="profileFormControl.newPassword?.errors 
+                                            && (profileFormControl.newPassword.touched || profileFormControl.newPassword.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.newPassword.errors.required"  class="text-danger">
+                                                Password is required.
+                                            </div>
+                                            <div *ngIf="profileFormControl.newPassword.errors.minlength">
+                                                Password must be at least 6 characters long.
+                                            </div>
+                                            <div *ngIf="profileFormControl.newPassword.errors.containAllBlankCharacter">
+                                                Password must not be blank character.
+                                            </div>
+                                            <div *ngIf="profileFormControl.newPassword.errors.maxlength">
+                                                Password must be at less than 50 characters long.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="confirmPassword">Confirm Password</label>
+                                        <input id="confirmPassword" type="text" formControlName="confirmPassword"
+                                            name="confirmPassword" class="form-control"/>
+                                        <div *ngIf="profileFormControl.confirmPassword.errors 
+                                            && (profileFormControl.confirmPassword.touched || profileFormControl.confirmPassword.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.confirmPassword.errors.required" class="text-danger">
+                                                Confirm Password is required.
+                                            </div>
+                                            <div *ngIf="profileFormControl.confirmPassword.errors.minlength">
+                                                Confirm Password must be at least 6 characters long.
+                                            </div>
+                                            <div *ngIf="profileFormControl.confirmPassword.errors.containAllBlankCharacter">
+                                                Confirm Password must not be blank character.
+                                            </div>
+                                            <div *ngIf="profileFormControl.confirmPassword.errors.maxlength">
+                                                Confirm Password must be at less than 50 characters long.
+                                            </div>
+                                            <div *ngIf="profileFormControl.confirmPassword.errors.mustMatch">
+                                                Confirm Password does not match.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button [disabled]="profileForm.invalid" class="btn btn-success btn-md" 
+                                        (click)="onChangePassProfile()">Đổi mật khẩu</button>
+                                    &nbsp;
+                                    
+                                    <button class="btn btn-primary btn-md" [routerLink]="['../']">Trở về</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Form Elements -->
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+    </div>
+</div>

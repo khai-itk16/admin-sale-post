@@ -1,0 +1,133 @@
+<div id="page-wrapper">
+    <div class="header">
+        <h1 class="page-header">
+            Chỉnh sửa profile
+        </h1>
+        <ol class="breadcrumb">
+            <li><a [routerLink]="['/profile']">Quản lý profile</a></li>
+            <li><a class="active">Chỉnh sửa profile</a></li>
+        </ol>
+
+    </div>
+    <div id="page-inner">
+        <!-- /. ROW  -->
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Form Elements -->
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="form-content">
+                                <form  [formGroup]= "profileForm">
+                                    <div class="col s12">
+                                        <label for="uname">Username</label>
+                                        <input id="uname" type="text" formControlName="username"
+                                            name="uname" class="validate"/>
+                                        <div *ngIf="profileFormControl.username.errors 
+                                            && (profileFormControl.username.touched || profileFormControl.username.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.username.errors.required"  class="text-danger">
+                                                Username is required.
+                                            </div>
+                                            <div *ngIf="profileFormControl.username.errors.containAllBlankCharacter">
+                                                Username must not be blank character.
+                                            </div>
+                                            <div *ngIf="profileFormControl.username.errors.maxlength">
+                                                Username must be at less than 100 characters long.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <label for="fname">First name</label>
+                                        <input id="fname" type="text" formControlName="firstName"
+                                            name="fname" class="validate"/>
+                                        <div *ngIf="profileFormControl.firstName.errors 
+                                            && (profileFormControl.firstName.touched || profileFormControl.firstName.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.firstName.errors.required"  class="text-danger">
+                                                First name  is required.
+                                            </div>
+                                            <div *ngIf="profileFormControl.firstName.errors.containAllBlankCharacter">
+                                                First name  must not be blank character.
+                                            </div>
+                                            <div *ngIf="profileFormControl.firstName.errors.maxlength">
+                                                First name must be at less than 100 characters long.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <label for="lname">Last name</label>
+                                        <input id="lname" type="text" formControlName="lastName"
+                                            name="lname" class="validate"/>
+                                        <div *ngIf="profileFormControl.lastName.errors 
+                                            && (profileFormControl.lastName.touched || profileFormControl.lastName.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.lastName.errors.required"  class="text-danger">
+                                                Last name  is required.
+                                            </div>
+                                            <div *ngIf="profileFormControl.lastName.errors.containAllBlankCharacter">
+                                                Last name  must not be blank character.
+                                            </div>
+                                            <div *ngIf="profileFormControl.lastName.errors.maxlength">
+                                                Last name must be at less than 100 characters long.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <label for="email">Email</label>
+                                        <input id="email" type="text" formControlName="email"
+                                            name="email" class="validate"/>
+                                        <div *ngIf="profileFormControl.email.errors 
+                                            && (profileFormControl.email.touched || profileFormControl.email.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.email.errors.required"  class="text-danger">
+                                                Email  is required.
+                                            </div>
+                                            <div *ngIf="profileFormControl.email.errors.email">
+                                                Email invalid format.
+                                            </div>
+                                            <div *ngIf="profileFormControl.email.errors.maxlength">
+                                                Email must be at less than 100 characters long.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col s12">
+                                        <label for="phone">Phone</label>
+                                        <input id="phone" type="text" formControlName="phone"
+                                            name="phone" class="validate"/>
+                                        <div *ngIf="profileFormControl.phone.errors 
+                                            && (profileFormControl.phone.touched || profileFormControl.phone.dirty)" 
+                                            class="text-danger">
+                                            <div *ngIf="profileFormControl.phone.errors.required"  class="text-danger">
+                                                Phone  is required.
+                                            </div>
+                                            <!-- <div *ngIf="profileFormControl.phone.errors.email">
+                                                Phone invalid format.
+                                            </div> -->
+                                            <div *ngIf="profileFormControl.phone.errors.maxlength">
+                                                Phone must be 10 characters long.
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <button [disabled]="profileForm.invalid" class="btn btn-success btn-md" 
+                                        (click)="onEditProfile()">Chỉnh sửa</button>
+                                    &nbsp;
+                                    
+                                    <button class="btn btn-primary btn-md" [routerLink]="['../']">Trở về</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Form Elements -->
+            </div>
+        </div>
+        <!-- /. ROW  -->
+
+    </div>
+</div>
